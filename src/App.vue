@@ -70,7 +70,7 @@
           </label>
         </li>
       </ul>
-      <button class="edit_button" @click="save()">Сохранить</button>
+      <button class="edit_button" @click="save()">Сохранитьfd</button>
     </div>
   </div>
 </template>
