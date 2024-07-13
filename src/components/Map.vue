@@ -18,7 +18,7 @@ export default {
   name: "HelloWorld",
   mounted() {
     let root = am5.Root.new(this.$refs.chartdiv);
-    console.log(this.arr);
+    //console.log(this.arr);
     root.setThemes([am5themes_Animated.new(root)]);
 
     let chart = root.container.children.push(
@@ -30,6 +30,7 @@ export default {
         paddingTop: 20,
         paddingLeft: 20,
         paddingRight: 20,
+        homeGeoPoint: { latitude: 55, longitude: 37 },
       })
     );
 
@@ -197,22 +198,20 @@ export default {
       });
     });
 
-    for (var i = 0; i < this.arr.length; i++) {
-      var car = this.arr[i];
-      addCar(car.longitude, car.latitude);
-    }
+    setTimeout(() => {
+      for (var i = 0; i < this.arr.length; i++) {
+        var car = this.arr[i];
+        addCar(car.longitude, car.latitude);
+      }
 
-    function addCar(longitude, latitude) {
-      pointSeries.data.push({
-        geometry: { type: "Point", coordinates: [longitude, latitude] },
-      });
-    }
-
-    //pointSeries.data.setAll(this.arr);
+      function addCar(longitude, latitude) {
+        pointSeries.data.push({
+          geometry: { type: "Point", coordinates: [longitude, latitude] },
+        });
+      }
+    }, 1500);
 
     chart.appear(1000, 100);
-
-    this.root = root;
   },
 
   beforeUnmount() {
