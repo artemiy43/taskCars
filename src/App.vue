@@ -1,5 +1,6 @@
 <template>
   <main class="main">
+    <Map :arr="carsStore.cars" />
     <button class="sort_button" @click="sortedFlag = 1">
       Сортировка по году
     </button>
@@ -79,6 +80,7 @@
 import { onMounted, ref, reactive } from "vue";
 import axios from "axios";
 import { useCarsStore } from "./store/carsStore";
+import { Map } from "../src/components/index";
 
 const carsStore = useCarsStore();
 

@@ -65,6 +65,12 @@ button:focus-visible {
   text-align: center;
 }
 
+.map {
+  width: 50%;
+  height: 500px;
+  margin: 0 auto;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
